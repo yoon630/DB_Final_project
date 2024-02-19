@@ -1,0 +1,229 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="reservinfo.css" />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script>
+    const logout = () => {window.location.href="http://localhost:3000/logout"};
+    const reservate = () => {window.location.href="http://localhost:3000/reservate"};
+     const reservinfo=() => {window.location.href="http://localhost:3000/reservinfo"}; 
+  </script>
+</head>
+<div class="header"> 
+  <div class="header-logo">
+    <span class="logo-text">Easy to get a new car</span>
+  </div>
+
+  <div class="header-info">
+    <span class="header-info_title">예약 한번으로 손 쉽게 차량 구매 가능 Easy to Get a new Car
+  </div>
+</div>
+
+<div class="content">
+  <div class="side">
+    <div class="side-frame">
+      <div class="side-frame_id">
+        <div class="userinfo">{{user}}</div>
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="side-menu">
+      <div class="side-menu_list" onclick="reservate()">
+        <span>구매 예약</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" onclick="reservinfo()">
+        <span>예약 취소</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>구매 내역 조회</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>이달의 프로모션</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>구매후기</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>개인정보처리방침</span>
+        <span class="material-icons">add</span>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+   <span class="main-top_title">Easy to Get a new CAR Reservate Cancel Information</span> 
+   <p class="sTitle"> <span>회원 정보 : {{user}}</span></p>
+    <div class="main-top">
+     <span class="main-top_title">CAR - 승용차 종류 </span>
+      <div class="main-top_table">
+        <table>
+        <tr style="background-color: #5f5fc4;">
+            <th scope="col" style ="width =15%" >차량번호</th>
+            <th scope="col" style ="width =5%">연비</th>
+		        <th scope="col" style ="width =15%" >브랜드</th>
+            <th scope="col" style ="width =10%" >가격</th>
+            <th scope="col" style ="width =10%" >판매자 정보</th>
+	          <th scope="col" style ="width =5%" >배기량</th>
+		        <th scope="col" style ="width =10%" >승차인원</th>
+		        <th scope="col" style ="width =10%" >예약 날짜</th>
+		        <th scope="col" style ="width =15%" >예약 취소</th>
+        </tr>
+          {{#reservCar}}
+          <form method="post">
+           <tr>
+              <td >{{Vin}}</td>
+              <td >{{Fuel_efficiency}} cc</td>
+              <td >{{Brand}}</td>
+              <td >{{Price}} $</td>
+              <td >{{Sid}}</td>
+              <td >{{Engine_size}}</td>
+              <td>{{Num_seats}}</td>
+              <td>{{Reservate_Date}}</td>
+              <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="cancelBtn"
+                        type="submit"
+                        class="cancelBtn"
+                        value="{{Vin}}"
+                        formaction="/reservinfo"
+                      >
+                        예약취소
+                      </button></td>
+          </tr>
+         </from>
+         {{/reservCar}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">SUV 종류 </span>
+        <div class="main-top_table">
+          <table>
+           <tr style="background-color: #5f5fc4;">
+              <th  scope="col" style ="width =15%">차량번호</th>
+              <th  scope="col" style ="width =5%">연비</th>
+		          <th  scope="col" style ="width =15%">브랜드</th>
+              <th  scope="col" style ="width =10%">가격</th>
+              <th  scope="col" style ="width =10%">판매자 정보</th>
+	            <th  scope="col" style ="width =5%">SUV 사이즈</th>
+		          <th  scope="col" style ="width =10%">승차인원</th>
+		          <th  scope="col" style ="width =15%">예약 취소</th>
+            </tr>
+          {{#reservSuv}}
+          <form method="post">
+            <tr>
+              <td >{{Vin}}</td>
+              <td >{{Fuel_efficiency}} cc</td>
+              <td >{{Brand}}</td>
+              <td >{{Price}} $</td>
+              <td >{{Sid}}</td>
+              <td >{{Size}}</td>
+              <td >{{Num_seats}}</td>
+              <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="cancelBtn"
+                        type="submit"
+                        class="cancelBtn"
+                        value="{{Vin}}"
+                        formaction="/reservinfo"
+                      >
+                        예약취소
+                      </button></td>
+             </tr>
+         </from>
+         {{/reservSuv}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">Truck 종류 </span>
+      <div class="main-top_table">
+        <table>
+          <tr style="background-color: #5f5fc4;">
+              <th scope="col" style ="width =15%">차량번호</th>
+              <th scope="col" style ="width =5%">연비</th>
+		          <th scope="col" style ="width =15%">브랜드</th>
+              <th scope="col" style ="width =10%">가격</th>
+              <th scope="col" style ="width =10%">판매자 정보</th>
+	            <th scope="col" style ="width =5%">톤 수</th>
+		          <th scope="col" style ="width =5%">축 개수</th>
+		          <th scope="col" style ="width =15%">예약 취소</th>
+          </tr>
+          {{#reservTruck}}
+          <form method="post">
+
+          <tr>
+            <td >{{Vin}}</td>
+            <td >{{Fuel_efficiency}} cc</td>
+            <td >{{Brand}}</td>
+            <td >{{Price}} $</td>
+            <td >{{Sid}}</td>
+            <td >{{Tonnage}}</td>
+            <td >{{No_axles}}</td>
+            <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="cancelBtn"
+                        type="submit"
+                        class="cancelBtn"
+                        value="{{Vin}}"
+                        formaction="/reservinfo"
+                      >
+                        예약취소
+                      </button></td>
+          </tr>
+         </from>
+         {{/reservTruck}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">Motorcycle 종류 </span>
+       <div class="main-top_table">
+         <table>
+          <tr style="background-color: #5f5fc4;">
+            <th scope="col" style ="width =15%" >차량번호</th>
+            <th scope="col" style ="width =5%">연비</th>
+		        <th scope="col" style ="width =15%">브랜드</th>
+            <th scope="col" style ="width =10%">가격</th>
+            <th scope="col" style ="width =10%">판매자 정보</th>
+	          <th scope="col" style ="width =5%">오토바이 레벨</th>
+		        <th scope="col" style ="width =15%">예약 취소</th>
+          </tr>
+          {{#reservMotor}}
+          <form method="post">
+
+          <tr>
+            <td >{{Vin}}</td>
+            <td >{{Fuel_efficiency}} cc</td>
+            <td >{{Brand}}</td>
+            <td >{{Price}} $</td>
+            <td >{{Sid}}</td>
+            <td >{{Level}}</td>
+             <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="cancelBtn"
+                        type="submit"
+                        class="cancelBtn"
+                        value="{{Vin}}"
+                        formaction="/reservinfo"
+                      >
+                        예약취소
+                      </button></td>
+          </tr>
+         </from>
+         {{/reservMotor}}
+        </table>
+      </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,238 @@
+{{!-- 구매 예약 조회 --}}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="salesinfo.css" />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script>
+    const logout = () => {window.location.href="http://localhost:3000/logout"};
+    const insert =() => {window.location.href="http://localhost:3000/insert"};
+    const update = () => {window.location.href="http://localhost:3000/update"};
+
+  </script>
+</head>
+<div class="header"> 
+  <div class="header-logo">
+    <span class="logo-text">Easy to get a new car</span>
+  </div>
+
+  <div class="header-info">
+    <span class="header-info_title">예약 한번으로 손 쉽게 차량 구매 가능 Easy to Get a new Car
+  </div>
+</div>
+
+<div class="content">
+  <div class="side">
+    <div class="side-frame">
+      <div class="side-frame_id">
+        <div class="userinfo">{{admin}}</div>
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="side-menu">
+      <div class="side-menu_list" >
+        <span>구매 예약</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>예약 취소</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" onclick="insert()">
+        <span>차량 정보 입력</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" onclick="update()">
+        <span>차량 정보 수정 및 삭제</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>구매후기</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>개인정보처리방침</span>
+        <span class="material-icons">add</span>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+   <span class="main-top_title">Reservate Information Update</span> 
+   <p class="sTitle"> <span> 관리자 : {{admin}}</span></p>
+    <div class="main-top">
+     <span class="main-top_title">CAR 예약 내역 </span>
+      <div class="main-top_table">
+        <table>
+        <tr style="background-color: #5f5fc4;">
+            <th scope="col" style ="width =15%" >차량번호</th>
+            <th scope="col" style ="width =5%">연비</th>
+		        <th scope="col" style ="width =15%" >브랜드</th>
+            <th scope="col" style ="width =10%" >가격</th>
+            <th scope="col" style ="width =10%" >구매자 정보</th>
+	          <th scope="col" style ="width =5%" >배기량</th>
+		        <th scope="col" style ="width =10%" >승차인원</th>
+		        <th scope="col" style ="width =10%" >예약 날짜</th>
+		        <th scope="col" style ="width =15%" >예약 수정</th>
+        </tr>
+          {{#salesCar}}
+          <form method="post">
+           <tr>
+              <td >{{Vin}}</td>
+              <td >{{Fuel_efficiency}} cc</td>
+              <td >{{Brand}}</td>
+              <td >{{Price}} $</td>
+              <td ><input type="text" name="Ssn" placeholder={{Ssn}}></td>
+              <td >{{Engine_size}}</td>
+              <td>{{Num_seats}}</td>
+              <td><input type="date" name="Reservate_Date"value="2022-12-18" min="2022-12-15" max="2022-12-31" placeholder={{Reservate_Date}}></td>
+              <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="updateBtn"
+                        type="submit"
+                        class="updateBtn"
+                        value="{{Vin}}"
+                        formaction="/salesinfo"
+                      >
+                        예약 수정
+                      </button></td>
+          </tr>
+         </from>
+         {{/salesCar}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">SUV 예약 내역 </span>
+        <div class="main-top_table">
+          <table>
+           <tr style="background-color: #5f5fc4;">
+              <th  scope="col" style ="width =15%">차량번호</th>
+              <th  scope="col" style ="width =5%">연비</th>
+		          <th  scope="col" style ="width =15%">브랜드</th>
+              <th  scope="col" style ="width =10%">가격</th>
+              <th  scope="col" style ="width =10%">구매자 정보</th>
+	            <th  scope="col" style ="width =5%">SUV 사이즈</th>
+		          <th  scope="col" style ="width =10%">승차인원</th>
+              <th scope="col" style ="width =10%" >예약 날짜</th>
+		          <th  scope="col" style ="width =15%">예약 수정</th>
+            </tr>
+          {{#salesSuv}}
+          <form method="post">
+            <tr>
+              <td >{{Vin}}</td>
+              <td >{{Fuel_efficiency}} cc</td>
+              <td >{{Brand}}</td>
+              <td >{{Price}} $</td>
+              <td ><input type="text" name="Ssn" placeholder={{Ssn}}></td>
+              <td >{{Size}}</td>
+              <td >{{Num_seats}}</td>
+              <td><input type="date" name="Reservate_Date"value="2022-12-18" min="2022-12-15" max="2022-12-31" placeholder={{Reservate_Date}}></td>
+              <td>
+                        <button
+                        style="margin-left: 10px;"
+                        name="updateBtn"
+                        type="submit"
+                        class="updateBtn"
+                        value="{{Vin}}"
+                        formaction="/salesinfo"
+                      >
+                        예약 수정
+                      </button></td>
+             </tr>
+         </from>
+         {{/salesSuv}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">Truck 예약 내역 </span>
+      <div class="main-top_table">
+        <table>
+          <tr style="background-color: #5f5fc4;">
+              <th scope="col" style ="width =15%">차량번호</th>
+              <th scope="col" style ="width =5%">연비</th>
+		          <th scope="col" style ="width =15%">브랜드</th>
+              <th scope="col" style ="width =10%">가격</th>
+              <th scope="col" style ="width =10%">구매자 정보</th>
+	            <th scope="col" style ="width =5%">톤 수</th>
+		          <th scope="col" style ="width =5%">축 개수</th>
+              <th scope="col" style ="width =10%" >예약 날짜</th>
+		          <th scope="col" style ="width =15%">예약 수정</th>
+          </tr>
+          {{#salesTruck}}
+          <form method="post">
+
+          <tr>
+            <td >{{Vin}}</td>
+            <td >{{Fuel_efficiency}} cc</td>
+            <td >{{Brand}}</td>
+            <td >{{Price}} $</td>
+            <td ><input type="text" name="Ssn" placeholder={{Ssn}}></td>
+            <td >{{Tonnage}}</td>
+            <td >{{No_axles}}</td>
+            <td><input type="date" name="Reservate_Date"value="2022-12-18" min="2022-12-15" max="2022-12-31" placeholder={{Reservate_Date}}></td>
+            <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="updateBtn"
+                        type="submit"
+                        class="updateBtn"
+                        value="{{Vin}}"
+                        formaction="/salesinfo"
+                      >
+                        예약 수정
+                      </button></td>
+          </tr>
+         </from>
+         {{/salesTruck}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">Motorcycle 예약 내역 </span>
+       <div class="main-top_table">
+         <table>
+          <tr style="background-color: #5f5fc4;">
+            <th scope="col" style ="width =15%" >차량번호</th>
+            <th scope="col" style ="width =5%">연비</th>
+		        <th scope="col" style ="width =15%">브랜드</th>
+            <th scope="col" style ="width =10%">가격</th>
+            <th scope="col" style ="width =10%">구매자 정보</th>
+	          <th scope="col" style ="width =5%">오토바이 레벨</th>
+            <th scope="col" style ="width =10%" >예약 날짜</th>
+		        <th scope="col" style ="width =15%">예약 수정</th>
+          </tr>
+          {{#salesMotor}}
+          <form method="post">
+
+          <tr>
+            <td >{{Vin}}</td>
+            <td >{{Fuel_efficiency}} cc</td>
+            <td >{{Brand}}</td>
+            <td >{{Price}} $</td>
+            <td ><input type="text" name="Ssn" placeholder={{Ssn}}></td>
+            <td >{{Level}}</td>
+            <td><input type="date" name="Reservate_Date"value="2022-12-18" min="2022-12-15" max="2022-12-31" placeholder={{Reservate_Date}}></td>
+             <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="updateBtn"
+                        type="submit"
+                        class="updateBtn"
+                        value="{{Vin}}"
+                        formaction="/salesinfo"
+                      >
+                        예약 수정
+                      </button></td>
+          </tr>
+         </from>
+         {{/salesMotor}}
+        </table>
+      </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,284 @@
+{{!-- 차량 정보 입력,수정,삭제 --}}
+<head>
+  <link rel="stylesheet" type="text/css" href="update.css" />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script>
+    const logout = () => {window.location.href="http://localhost:3000/logout"};
+    const insert =() => {window.location.href="http://localhost:3000/insert"};
+    const update = () => {window.location.href="http://localhost:3000/update"};
+  </script>
+</head>
+<div class="header"> 
+  <div class="header-logo">
+    <span class="logo-text">Easy to get a new car</span>
+  </div>
+
+  <div class="header-info">
+    <span class="header-info_title">예약 한번으로 손 쉽게 차량 구매 가능 Easy to Get a new Car
+  </div>
+</div>
+
+<div class="content">
+  <div class="side">
+    <div class="side-frame">
+      <div class="side-frame_id">
+        <div class="userinfo">{{admin}}</div>
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="side-menu">
+      <div class="side-menu_list" >
+        <span>구매 예약</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" >
+        <span>예약 취소</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" onclick="insert()">
+        <span>차량 정보 입력</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" onclick="update()">
+        <span>차량 정보 수정 및 삭제</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>구매후기</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>개인정보처리방침</span>
+        <span class="material-icons">add</span>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+   <span class="main-top_title">차량 데이터 삭제 및 수정</span> 
+   <p class="sTitle"> <span>관리자 정보 : {{admin}}</span></p>
+    <div class="main-top">
+     <span class="main-top_title">CAR  승용차 종류 </span>
+      <div class="main-top_table">
+        <table>
+        <tr style="background-color: #5f5fc4;">
+            <th scope="col" style ="width =10%" id="vin" >차대번호</th>
+            <th scope="col" style ="width =5%">연비</th>
+		        <th scope="col" style ="width =5%" >브랜드</th>
+            <th scope="col" style ="width =5%" >가격</th>
+            <th scope="col" style ="width =5%"id="sid" >판매자 정보</th>
+	          <th scope="col" style ="width =5%" >배기량</th>
+		        <th scope="col" style ="width =5%" id="num_seats" >승차인원</th>
+		        <th scope="col" style ="width =5%" id="update" >수정</th>
+		        <th scope="col" style ="width =5%" id="update">삭제</th>
+        </tr>
+          {{#updateCar}}
+          <form method="post">
+           <tr>
+            
+              <td><input type="text" name="Vin_Car" placeholder={{Vin}}></td>
+              <td ><input type="text" id="inputdesign" name="Fuel_efficiency_car" placeholder={{Fuel_efficiency}}> cc</td>
+              <td ><input type="text" id="brand" name="Brand_car" placeholder={{Brand}}></td>
+              <td ><input type="text" id="inputdesign" name="Price_car" placeholder={{Price}}> $</td>
+              <td ><input type="text" id="inputdesign" name="Sid_car" placeholder={{Sid}}></td>
+              <td ><input type="text" id="inputdesign" name="Engine_size_car" placeholder={{Engine_size}}></td>
+              <td><input type="text"  id="inputdesign" name="Num_seats_car" placeholder={{Num_seats}}></td>
+              <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="carBtn"
+                        type="submit"
+                        class="carBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        수정
+                      </button></td>
+          </tr>
+          <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="deleteCarBtn"
+                        type="submit"
+                        class="deleteCarBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        삭제
+                      </button></td>
+          </tr>
+         </from>
+         {{/updateCar}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">SUV 종류 </span>
+        <div class="main-top_table">
+          <table>
+           <tr style="background-color: #5f5fc4;">
+              <th  scope="col" style ="width =10%" id="vin">차대번호</th>
+              <th  scope="col" style ="width =5%">연비</th>
+		          <th  scope="col" style ="width =5%">브랜드</th>
+              <th  scope="col" style ="width =5%">가격</th>
+              <th  scope="col" style ="width =5%" id="sid">판매자 정보</th>
+	            <th  scope="col" style ="width =5%">SUV 사이즈</th>
+		          <th  scope="col" style ="width =5%" id="num_seats">승차인원</th>
+		          <th scope="col" style ="width =5%" id="update">수정</th>
+		          <th scope="col" style ="width =5%" id="update">삭제</th>
+            </tr>
+          {{#updateSuv}}
+          <form method="post">
+            <tr>
+              
+              <td ><input type="text"  name="Vin_Suv" placeholder={{Vin}}></td>
+              <td ><input type="text" id="inputdesign" name="Fuel_efficiency_suv" placeholder={{Fuel_efficiency}}> cc</td>
+              <td ><input type="text" id="brand" name="Brand_suv" placeholder={{Brand}}></td>
+              <td ><input type="text" id="inputdesign" name="Price_suv" placeholder={{Price}}> $</td>
+              <td ><input type="text" id="inputdesign" name="Sid_suv" placeholder={{Sid}}></td>
+              <td ><input type="text" id="inputdesign" name="Size_suv" placeholder={{Size}}></td>
+              <td ><input type="text" id="inputdesign" name="Num_seats_suv" placeholder={{Num_seats}}></td>
+              <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="suvupdateBtn"
+                        type="submit"
+                        class="suvupdateBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        수정
+                      </button></td>
+          </tr>
+          <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="deleteSuvBtn"
+                        type="submit"
+                        class="deleteSuvBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        삭제
+                      </button></td>
+             </tr>
+         </from>
+         {{/updateSuv}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">Truck 종류 </span>
+      <div class="main-top_table">
+        <table>
+          <tr style="background-color: #5f5fc4;">
+              <th scope="col" style ="width =10%" id="vin">차대번호</th>
+              <th scope="col" style ="width =5%">연비</th>
+		          <th scope="col" style ="width =5%">브랜드</th>
+              <th scope="col" style ="width =5%">가격</th>
+              <th scope="col" style ="width =5%" id="sid">판매자 정보</th>
+	            <th scope="col" style ="width =5%">톤 수</th>
+		          <th scope="col" style ="width =5%"id="num_seats">축 개수</th>
+		          <th scope="col" style ="width =5%"  id="update">수정</th>
+		          <th scope="col" style ="width =5%" id="update">삭제</th>
+          </tr>
+          {{#updateTruck}}
+          <form method="post">
+
+          <tr>
+            
+            <td><input type="text"   name="Vin_Truck" placeholder={{Vin}}></td>
+            <td ><input type="text" id="inputdesign" name="Fuel_efficiency_truck" placeholder={{Fuel_efficiency}}> cc</td>
+            <td ><input type="text" id="brand" name="Brand_truck" placeholder={{Brand}}></td>
+            <td ><input type="text" id="inputdesign" name="Price_truck" placeholder={{Price}}> $</td>
+            <td ><input type="text" id="inputdesign" name="Sid_truck" placeholder={{Sid}}></td>
+            <td ><input type="text" id="inputdesign" name="Tonnage_truck" placeholder={{Tonnage}}></td>
+            <td ><input type="text" id="inputdesign" name="No_axles_truck" placeholder={{No_axles}}></td>
+            <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="truckupdateBtn"
+                        type="submit"
+                        class="truckupdateBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        수정
+                      </button></td>
+          </tr>
+          <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="deleteTruckBtn"
+                        type="submit"
+                        class="deleteTruckBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        삭제
+                      </button></td>
+          </tr>
+         </from>
+         {{/updateTruck}}
+        </table>
+      </div>
+      </div>
+      <div class="main-top">
+      <span class="main-top_title">Motorcycle 종류 </span>
+       <div class="main-top_table">
+         <table>
+          <tr style="background-color: #5f5fc4;">
+            <th scope="col" style ="width =10% "id="vin" >차대번호</th>
+            <th scope="col" style ="width =5%">연비</th>
+		        <th scope="col" style ="width =5%">브랜드</th>
+            <th scope="col" style ="width =5%">가격</th>
+            <th scope="col" style ="width =5%" id="sid">판매자 정보</th>
+	          <th scope="col" style ="width =5%" id="num_seats">오토바이 레벨</th>
+		        <th scope="col" style ="width =5%" id="update" >수정</th>
+		        <th scope="col" style ="width =5%" id="update">삭제</th>
+          </tr>
+          {{#updateMotor}}
+          <form method="post">
+
+          <tr>
+             
+            <td> <input type="text"  name="Vin_Motor"placeholder={{Vin}}></td>
+            <td ><input type="text" id="inputdesign" name="Fuel_efficiency_motor" placeholder={{Fuel_efficiency}}> cc</td>
+            <td ><input type="text" id="brand" name="Brand_motor" placeholder={{Brand}}></td>
+            <td ><input type="text" id="inputdesign" name="Price_motor" placeholder={{Price}}> $</td>
+            <td ><input type="text" id="inputdesign" name="Sid_motor" placeholder={{Sid}}></td>
+            <td ><input type="text" id="inputdesign" name="Level_motor" placeholder={{Level}}></td>
+            <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="motorupdateBtn"
+                        type="submit"
+                        class="motorupdateBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        수정
+                      </button></td>
+          </tr>
+          <td>
+                      <button
+                        style="margin-left: 10px;"
+                        name="deleteMotorBtn"
+                        type="submit"
+                        class="deleteMotorBtn"
+                        value="{{Vin}}"
+                        formaction="/update"
+                      >
+                        삭제
+                      </button></td>
+          </tr>
+         </from>
+         {{/updateMotor}}
+        </table>
+      </div>
+      </div>
+    </div>
+</div>

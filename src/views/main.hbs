@@ -1,0 +1,151 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script>
+    const logout = () => {window.location.href="http://localhost:3000/logout"};
+    const reservate = () => {window.location.href="http://localhost:3000/reservate"};
+    const reservinfo=() => {window.location.href="http://localhost:3000/reservinfo"}; 
+  </script>
+</head>
+<div class="header">
+  <div class="header-logo">
+    <span class="logo-text">Easy to get a new car</span>
+  </div>
+
+  <div class="header-info">
+    <span class="header-info_title">예약 한번으로 손 쉽게 차량 구매 가능 Easy to Get a new Car
+  </div>
+</div>
+
+<div class="content">
+  <div class="side">
+    <div class="side-frame">
+      <div class="side-frame_id">
+        <div class="userinfo">{{user}}</div>
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="side-menu">
+      <div class="side-menu_list" onclick="reservate()">
+        <span>구매 예약</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list" onclick="reservinfo()">
+        <span>예약 취소</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>구매 내역 조회</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>이달의 프로모션</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>구매후기</span>
+        <span class="material-icons">add</span>
+      </div>
+      <div class="side-menu_list">
+        <span>개인정보처리방침</span>
+        <span class="material-icons">add</span>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="main-top">
+      <span class="main-top_title">Easy to Get a new CAR Promotion </span>
+         <div class="main-top_table">
+        <table>
+          <tr style="background-color: #5f5fc4;">
+            <td class="main-top_table_head_first">행사 기간</td>
+            <td class="main-top_table_head_second">행사 내용</td>
+          </tr>
+          <tr>
+            <td class="main-top_table_body_first">2022. 11. 22(화) 10:00 </td>
+            <td class="main-top_table_body_second">2022년 HYUNDAI 소형 SUV CASPER 구매 경품 추첨</td>
+          </tr>
+          <tr>
+            <td class="main-top_table_body_first">2022. 12. 10(토) </td>
+            <td class="main-top_table_body_second">GENESIS GV80 컬러 변경 이벤트 (vip 특별 이벤트)</td>
+          </tr>
+          <tr>
+            <td class="main-top_table_body_first">2022. 12. 12(월) </td>
+            <td class="main-top_table_body_second">오토바이 무료 점검 이벤트</td>
+          </tr>
+          <tr>
+            <td class="main-top_table_body_first">2022. 12. 17(금) </td>
+            <td class="main-top_table_body_second">중형,대형 SUV 구매 고객 이벤트</td>
+          </tr>
+          <tr>
+            <td class="main-top_table_body_first">2022. 12. 16(목) </td>
+            <td class="main-top_table_body_second"> 아반떼 구매 시 시트 컬러 무료 변경 이벤트</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="main-bottom">
+      <span class="main-bottom_title">Easy to Get a new CAR FAQ</span>
+      <div class="main-bottom_table">
+        <table>
+          <tr style="background-color: #5f5fc4;">
+            <td class="main-bottom_table_head_first">번호</td>
+            <td class="main-bottom_table_head_second">첨부</td>
+            <td class="main-bottom_table_head_third">제목</td>
+            <td class="main-bottom_table_head_fourth">등록일</td>
+            <td class="main-bottom_table_head_fifth">글쓴이</td>
+          </tr>
+          <tr>
+            <td class="main-bottom_table_body_first">1</td>
+            <td class="main-bottom_table_body_second"><span class="material-symbols-outlined">
+description
+</span></td>
+            <td class="main-bottom_table_body_third">[구매관련] 구매 계약서</td>
+            <td class="main-bottom_table_body_fourth">2020-01-20</td>
+            <td class="main-bottom_table_body_fifth">관리자</td>
+          </tr>
+          <tr>
+            <td class="main-bottom_table_body_first">2</td>
+            <td class="main-bottom_table_body_second"></td>
+            <td class="main-bottom_table_body_third">[환불관련] 구매 후 환불 관련 정책 </td>
+            <td class="main-bottom_table_body_fourth">2019-07-22</td>
+            <td class="main-bottom_table_body_fifth">관리자</td>
+          </tr>
+          <tr>
+            <td class="main-bottom_table_body_first">3</td>
+            <td class="main-bottom_table_body_second"></td>
+            <td class="main-bottom_table_body_third">[구매관련] 구매 시 포인트 사용 안내(VIP부터 적용)</td>
+            <td class="main-bottom_table_body_fourth">2019-07-25</td>
+            <td class="main-bottom_table_body_fifth">관리자</td>
+          </tr>
+          <tr>
+            <td class="main-bottom_table_body_first">4</td>
+            <td class="main-bottom_table_body_second"></td>
+            <td class="main-bottom_table_body_third">[예약관련] 예약 취소 가능 기간 안내</td>
+            <td class="main-bottom_table_body_fourth">2019-02-19</td>
+            <td class="main-bottom_table_body_fifth">관리자</td>
+          </tr>
+          <tr>
+            <td class="main-bottom_table_body_first">5</td>
+            <td class="main-bottom_table_body_second"><span class="material-symbols-outlined">
+description
+</span></td>
+            <td class="main-bottom_table_body_third">[예약관련] 예약 완료 후 조회가 안될 경우</td>
+            <td class="main-bottom_table_body_fourth">2022-07-26</td>
+            <td class="main-bottom_table_body_fifth">관리자</td>
+          </tr>
+          <tr>
+            <td class="main-bottom_table_body_first"></td>
+            <td class="main-bottom_table_body_second"></td>
+            <td class="main-bottom_table_body_third"></td>
+            <td class="main-bottom_table_body_fourth"></td>
+            <td class="main-bottom_table_body_fifth"></td>
+          </tr>
+    
+    </div>
+  </div>
+</div>
